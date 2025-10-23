@@ -48,7 +48,7 @@ style: |
 
 ## Conception: Schema
 
-![Schema](images/schema.jpg)
+![Schema](images/schema.png)
 
 ---
 
@@ -60,4 +60,4 @@ style: |
 
 ## Diagramme de classe
 
-![Maquette](images/image5.jpg)
+![Maquette](images/diagramme.jpg)
