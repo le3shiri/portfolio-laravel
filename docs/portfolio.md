@@ -54,7 +54,7 @@ style: |
 
 ## Conception: Maquette
 
-![Maquette](images/image4.png)
+![Maquette](images/maquette.png)
 
 ---
 
