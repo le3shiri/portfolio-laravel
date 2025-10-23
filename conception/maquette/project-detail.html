@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Aymane El Achiri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        orange: '#FFB800',
+                        purple: '#6C63FF',
+                        lightBlue: '#F0F4FF',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-lightBlue">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/logo.png" alt="Aymane El Achiri" class="h-12 w-auto">
+                </a>
+
+                <!-- Desktop Menu -->
+                <ul class="hidden lg:flex items-center space-x-8">
+                    <li><a href="index.html" class="text-gray-700 hover:text-orange transition-colors">Home</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-orange transition-colors">About</a></li>
+                    <li><a href="portfolio.html" class="text-orange font-semibold">Portfolio</a></li>
+                </ul>
+
+                <!-- Contact Button -->
+                <a href="#contact" class="hidden lg:block bg-orange hover:bg-yellow-500 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg">
+                    Contact
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-2xl text-gray-800">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden pb-4">
+                <ul class="flex flex-col space-y-3">
+                    <li><a href="index.html" class="text-gray-700">Home</a></li>
+                    <li><a href="about.html" class="text-gray-700">About</a></li>
+                    <li><a href="portfolio.html" class="text-orange font-semibold">Portfolio</a></li>
+                    <li><a href="#contact" class="bg-orange text-white px-6 py-2 rounded-full inline-block">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Content -->
+    <div id="project-content" class="pt-24">
+        <!-- Content will be loaded dynamically -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <a href="index.html" class="inline-block mb-4">
+                        <img src="assets/logo.png" alt="Aymane El Achiri" class="h-10 w-auto brightness-0 invert">
+                    </a>
+                    <p class="text-gray-400">Creative Web Developer & UI/UX Designer based in Morocco.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-orange transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-orange transition-colors">About</a></li>
+                        <li><a href="services.html" class="hover:text-orange transition-colors">Services</a></li>
+                        <li><a href="portfolio.html" class="hover:text-orange transition-colors">Portfolio</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Tangier, Morocco</li>
+                        <li>satayman41@gmail.com</li>
+                        <li>+212 707 40 74 25</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Follow Me</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/in/mohamed-aymane-el-achiri-65383b300/" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple transition-all">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/elachiriiii/" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange transition-all">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple transition-all">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>Copyright © 2025 Aymane El Achiri | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Project Data (Projet Entity + Technologie Relationship)
+        const projects = {
+            1: {
+                id: 1,
+                titre: "Mobility Manager",
+                description: "A comprehensive staff mobility management platform designed for Rguigue Transport. This system enables real-time tracking of employee movements, schedule management, and provides detailed analytics for better workforce coordination.",
+                image: "assets/MobilityManager.png",
+                dateDebut: "January 2024",
+                dateFin: "March 2024",
+                category: "Web Development",
+                client: "Rguigue Transport",
+                role: "Full Stack Developer",
+                technologies: [
+                    { id: 1, nom: "PHP" },
+                    { id: 2, nom: "MySQL" },
+                    { id: 3, nom: "JavaScript" },
+                    { id: 4, nom: "Bootstrap" },
+                    { id: 5, nom: "AJAX" }
+                ],
+                challenges: "The main challenge was implementing real-time tracking while ensuring data security and system performance with multiple concurrent users.",
+                solution: "Implemented a robust backend with PHP and MySQL, utilizing AJAX for real-time updates without page refresh, and optimized database queries for better performance.",
+                results: ["Reduced manual tracking time by 80%", "Improved employee coordination efficiency", "Real-time dashboard for management decisions"],
+                images: ["assets/MobilityManager.png"]
+            },
+            2: {
+                id: 2,
+                titre: "Mudart Shop",
+                description: "A full-featured e-commerce platform for online retail. Built with WordPress and WooCommerce, this website provides a seamless shopping experience with secure payment integration, inventory management, and customer order tracking.",
+                image: "assets/MudartShop.png",
+                dateDebut: "April 2024",
+                dateFin: "June 2024",
+                category: "WordPress Development",
+                client: "Mudart Company",
+                role: "WordPress Developer",
+                technologies: [
+                    { id: 6, nom: "WordPress" },
+                    { id: 7, nom: "WooCommerce" },
+                    { id: 1, nom: "PHP" },
+                    { id: 8, nom: "CSS3" },
+                    { id: 9, nom: "Payment Gateway Integration" }
+                ],
+                challenges: "Integrating multiple payment gateways while maintaining security standards and ensuring a smooth checkout process.",
+                solution: "Implemented WooCommerce with custom payment gateway integrations, optimized the checkout flow, and added security measures for transaction safety.",
+                results: ["Processed 500+ orders in first month", "98% customer satisfaction rate", "Secure payment processing"],
+                images: ["assets/MudartShop.png"]
+            },
+            3: {
+                id: 3,
+                titre: "Gaming Tournament Landing",
+                description: "A modern and vibrant landing page design for gaming tournaments at Solicode. Features dynamic animations, event schedules, registration forms, and live tournament brackets.",
+                image: "assets/gamingLanding.png",
+                dateDebut: "September 2024",
+                dateFin: "October 2024",
+                category: "UI/UX Design",
+                client: "Solicode Gaming Field",
+                role: "UI/UX Designer",
+                technologies: [
+                    { id: 10, nom: "Figma" },
+                    { id: 11, nom: "UI Design" },
+                    { id: 12, nom: "Prototyping" },
+                    { id: 13, nom: "User Research" },
+                    { id: 14, nom: "Wireframing" }
+                ],
+                challenges: "Creating an engaging design that appeals to gamers while maintaining functionality and accessibility.",
+                solution: "Conducted user research with gaming community, created interactive prototypes in Figma, and designed with gaming aesthetics in mind.",
+                results: ["300+ tournament registrations", "Positive user feedback on design", "Increased engagement by 150%"],
+                images: ["assets/gamingLanding.png"]
+            },
+            4: {
+                id: 4,
+                titre: "INOVAFY Landing Page",
+                description: "A professional landing page design for INOVAFY startup company. Features modern aesthetics, clear value proposition, service showcase, and conversion-optimized CTAs.",
+                image: "assets/INOVAFYLanding.png",
+                dateDebut: "July 2024",
+                dateFin: "August 2024",
+                category: "UI/UX Design",
+                client: "INOVAFY",
+                role: "Brand & Web Designer",
+                technologies: [
+                    { id: 10, nom: "Figma" },
+                    { id: 15, nom: "Branding" },
+                    { id: 16, nom: "Web Design" },
+                    { id: 17, nom: "Typography" },
+                    { id: 18, nom: "Color Theory" }
+                ],
+                challenges: "Creating a cohesive brand identity and translating it into a landing page that converts visitors into clients.",
+                solution: "Developed a complete brand style guide, designed a conversion-focused layout, and created reusable design components.",
+                results: ["40% increase in conversion rate", "Professional brand presence established", "Positive client feedback"],
+                images: ["assets/INOVAFYLanding.png"]
+            },
+            5: {
+                id: 5,
+                titre: "Personal Portfolio Website",
+                description: "My previous portfolio iteration showcasing projects and skills. Built with vanilla HTML, CSS, and JavaScript, featuring responsive design and smooth animations.",
+                image: "assets/PersonalPortfolio.png",
+                dateDebut: "February 2024",
+                dateFin: "March 2024",
+                category: "Web Development",
+                client: "Personal Project",
+                role: "Full Stack Developer",
+                technologies: [
+                    { id: 19, nom: "HTML5" },
+                    { id: 8, nom: "CSS3" },
+                    { id: 3, nom: "JavaScript" },
+                    { id: 20, nom: "Responsive Design" },
+                    { id: 21, nom: "Animation" }
+                ],
+                challenges: "Creating a portfolio that stands out while maintaining fast load times and cross-browser compatibility.",
+                solution: "Used vanilla technologies for optimal performance, implemented lazy loading for images, and ensured responsive design across all devices.",
+                results: ["Fast load time (<2 seconds)", "100% responsive design", "Landed multiple freelance projects"],
+                images: ["assets/PersonalPortfolio.png"]
+            },
+            6: {
+                id: 6,
+                titre: "NMedical Plus E-commerce",
+                description: "An e-commerce platform specializing in medical equipment and supplies. Features product catalog, inventory management, order processing, and secure checkout for healthcare professionals.",
+                image: "assets/Nmedicalp.png",
+                dateDebut: "October 2024",
+                dateFin: "December 2024",
+                category: "WordPress Development",
+                client: "NMedical Plus",
+                role: "WordPress Developer",
+                technologies: [
+                    { id: 6, nom: "WordPress" },
+                    { id: 7, nom: "WooCommerce" },
+                    { id: 22, nom: "Custom Theme Development" },
+                    { id: 1, nom: "PHP" },
+                    { id: 23, nom: "MySQL Database" }
+                ],
+                challenges: "Managing a large medical product catalog with detailed specifications and ensuring HIPAA-compliant data handling.",
+                solution: "Built a custom WordPress theme with advanced filtering, implemented secure data handling practices, and optimized for medical product displays.",
+                results: ["1000+ products successfully listed", "Secure transaction processing", "Healthcare professional-friendly interface"],
+                images: ["assets/Nmedicalp.png"]
+            },
+            7: {
+                id: 7,
+                titre: "Ladrissi.com",
+                description: "A professional business website designed for Ladrissi company. Features modern design, company information, service showcase, and contact integration for better client communication.",
+                image: "assets/LadrissiCom.png",
+                dateDebut: "August 2024",
+                dateFin: "September 2024",
+                category: "WordPress Development",
+                client: "Ladrissi Company",
+                role: "WordPress Developer",
+                technologies: [
+                    { id: 6, nom: "WordPress" },
+                    { id: 1, nom: "PHP" },
+                    { id: 22, nom: "Custom Theme Development" },
+                    { id: 8, nom: "CSS3" },
+                    { id: 24, nom: "Responsive Design" }
+                ],
+                challenges: "Creating a professional corporate website that reflects the company's brand identity while ensuring easy content management.",
+                solution: "Developed a custom WordPress theme with a clean, professional design, integrated custom post types, and added a user-friendly admin interface.",
+                results: ["Modern professional online presence", "Easy content management system", "Improved client engagement"],
+                images: ["assets/LadrissiCom.png"]
+            },
+            8: {
+                id: 8,
+                titre: "Ladrissi360",
+                description: "An innovative 360-degree virtual tour platform that allows users to explore spaces interactively. Features immersive panoramic views, interactive hotspots, and smooth navigation for an engaging user experience.",
+                image: "assets/Ladrissi360.png",
+                dateDebut: "November 2024",
+                dateFin: "January 2025",
+                category: "Web Development",
+                client: "Ladrissi Company",
+                role: "Full Stack Developer",
+                technologies: [
+                    { id: 3, nom: "JavaScript" },
+                    { id: 25, nom: "Three.js" },
+                    { id: 19, nom: "HTML5" },
+                    { id: 8, nom: "CSS3" },
+                    { id: 26, nom: "WebGL" }
+                ],
+                challenges: "Creating smooth 360-degree navigation with high-quality images while maintaining fast load times and cross-browser compatibility.",
+                solution: "Implemented Three.js for 3D rendering, optimized image loading with progressive techniques, and ensured responsive design for all devices.",
+                results: ["Immersive virtual tour experience", "Fast loading times (<3 seconds)", "Compatible across all major browsers"],
+                images: ["assets/Ladrissi360.png"]
+            },
+            9: {
+                id: 9,
+                titre: "Projecteurlogo",
+                description: "A modern logo design platform built with Next.js. Features server-side rendering, dynamic routing, and a responsive gallery for showcasing professional brand identity work. Includes case studies and detailed project breakdowns.",
+                image: "assets/ProjectorLogo.png",
+                dateDebut: "June 2024",
+                dateFin: "August 2024",
+                category: "Web Development",
+                client: "Projecteurlogo",
+                role: "Full Stack Developer",
+                technologies: [
+                    { id: 29, nom: "Next.js" },
+                    { id: 30, nom: "React" },
+                    { id: 31, nom: "TypeScript" },
+                    { id: 32, nom: "Tailwind CSS" },
+                    { id: 3, nom: "JavaScript" }
+                ],
+                challenges: "Building a fast, SEO-optimized platform with dynamic content while maintaining excellent performance and user experience.",
+                solution: "Leveraged Next.js for server-side rendering and static site generation, implemented TypeScript for type safety, and used Tailwind CSS for rapid UI development.",
+                results: ["Lightning-fast page loads with SSR", "100% SEO optimized", "Scalable and maintainable codebase"],
+                images: ["assets/ProjectorLogo.png"]
+            }
+        };
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function loadProjectDetails() {
+            // Get project ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = parseInt(urlParams.get('id')) || 1;
+            const project = projects[projectId];
+
+            if (!project) {
+                window.location.href = 'portfolio.html';
+                return;
+            }
+
+            // Generate HTML
+            const content = `
+                <!-- Back Button -->
+                <section class="py-8">
+                    <div class="container mx-auto px-4 lg:px-8">
+                        <a href="portfolio.html" class="inline-flex items-center gap-2 text-purple hover:text-orange transition-colors font-semibold">
+                            <i class="bi bi-arrow-left"></i> Back to Portfolio
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Project Header -->
+                <section class="pb-12">
+                    <div class="container mx-auto px-4 lg:px-8">
+                        <div class="bg-gradient-to-br from-purple/10 to-orange/10 rounded-3xl p-8 lg:p-12">
+                            <span class="bg-orange text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-4">
+                                ${project.category}
+                            </span>
+                            <h1 class="text-4xl lg:text-5xl font-bold mb-4 text-gray-800">${project.titre}</h1>
+                            <p class="text-gray-600 text-lg mb-6">${project.description}</p>
+                            
+                            <div class="grid md:grid-cols-4 gap-6">
+                                <div>
+                                    <p class="text-sm text-gray-500 mb-1">Client</p>
+                                    <p class="font-semibold text-gray-800">${project.client}</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 mb-1">Role</p>
+                                    <p class="font-semibold text-gray-800">${project.role}</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 mb-1">Start Date</p>
+                                    <p class="font-semibold text-gray-800">${project.dateDebut}</p>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 mb-1">End Date</p>
+                                    <p class="font-semibold text-gray-800">${project.dateFin}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Project Image -->
+                <section class="pb-12">
+                    <div class="container mx-auto px-4 lg:px-8">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="${project.image}" alt="${project.titre}" class="w-full">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Project Details -->
+                <section class="py-12">
+                    <div class="container mx-auto px-4 lg:px-8">
+                        <div class="grid lg:grid-cols-3 gap-12">
+                            <div class="lg:col-span-2 space-y-12">
+                                <!-- Challenge -->
+                                <div>
+                                    <h2 class="text-3xl font-bold mb-4 text-gray-800">
+                                        <span class="text-purple">The</span> Challenge
+                                    </h2>
+                                    <p class="text-gray-600 leading-relaxed">${project.challenges}</p>
+                                </div>
+
+                                <!-- Solution -->
+                                <div>
+                                    <h2 class="text-3xl font-bold mb-4 text-gray-800">
+                                        <span class="text-orange">The</span> Solution
+                                    </h2>
+                                    <p class="text-gray-600 leading-relaxed">${project.solution}</p>
+                                </div>
+
+                                <!-- Results -->
+                                <div>
+                                    <h2 class="text-3xl font-bold mb-4 text-gray-800">
+                                        <span class="text-purple">Project</span> Results
+                                    </h2>
+                                    <ul class="space-y-3">
+                                        ${project.results.map(result => `
+                                            <li class="flex items-start gap-3">
+                                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                                    <i class="bi bi-check text-green-600"></i>
+                                                </div>
+                                                <span class="text-gray-600">${result}</span>
+                                            </li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Sidebar -->
+                            <div class="space-y-8">
+                                <!-- Technologies Used -->
+                                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                                    <h3 class="text-xl font-bold mb-4 text-gray-800">Technologies Used</h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        ${project.technologies.map(tech => `
+                                            <span class="bg-purple/10 text-purple px-3 py-2 rounded-lg text-sm font-semibold">
+                                                ${tech.nom}
+                                            </span>
+                                        `).join('')}
+                                    </div>
+                                </div>
+
+                                <!-- Project Info -->
+                                <div class="bg-white rounded-2xl p-6 shadow-lg">
+                                    <h3 class="text-xl font-bold mb-4 text-gray-800">Project Info</h3>
+                                    <div class="space-y-4">
+                                        <div>
+                                            <p class="text-sm text-gray-500 mb-1">Category</p>
+                                            <p class="font-semibold text-gray-800">${project.category}</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-500 mb-1">Duration</p>
+                                            <p class="font-semibold text-gray-800">${project.dateDebut} - ${project.dateFin}</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-sm text-gray-500 mb-1">Client</p>
+                                            <p class="font-semibold text-gray-800">${project.client}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CTA -->
+                                <div class="bg-gradient-to-br from-purple to-blue-600 rounded-2xl p-6 text-white">
+                                    <h3 class="text-xl font-bold mb-3">Interested in Similar Project?</h3>
+                                    <p class="text-white/90 mb-4 text-sm">Let's discuss how I can help with your project.</p>
+                                    <a href="contact.html" class="block text-center bg-orange hover:bg-yellow-500 text-white px-6 py-3 rounded-full font-semibold transition-all">
+                                        Get In Touch
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact" class="py-20 bg-lightBlue">
+                    <div class="container mx-auto px-4 lg:px-8">
+                        <div class="max-w-4xl mx-auto text-center">
+                            <h2 class="text-4xl font-bold mb-4 text-gray-800">
+                                <span class="text-purple">Get In</span> Touch
+                            </h2>
+                            <p class="text-gray-600 text-lg mb-12">
+                                Ready to start your project? Let's talk about how I can help bring your ideas to life.
+                            </p>
+                            
+                            <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                                <!-- Email -->
+                                <a href="mailto:satayman41@gmail.com" class="group bg-white rounded-2xl p-8 hover:shadow-xl transition-all">
+                                    <div class="w-16 h-16 bg-purple rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                        <i class="bi bi-envelope-fill text-2xl text-white"></i>
+                                    </div>
+                                    <h3 class="font-bold text-gray-800 mb-2 text-lg">Email Me</h3>
+                                    <p class="text-purple font-semibold break-all">satayman41@gmail.com</p>
+                                </a>
+
+                                <!-- Phone -->
+                                <a href="tel:+212707407425" class="group bg-white rounded-2xl p-8 hover:shadow-xl transition-all">
+                                    <div class="w-16 h-16 bg-orange rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                        <i class="bi bi-telephone-fill text-2xl text-white"></i>
+                                    </div>
+                                    <h3 class="font-bold text-gray-800 mb-2 text-lg">Call Me</h3>
+                                    <p class="text-orange font-semibold">+212 707 40 74 25</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- More Projects -->
+                <section class="py-20 bg-white">
+                    <div class="container mx-auto px-4 lg:px-8">
+                        <div class="text-center mb-12">
+                            <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                                <span class="text-purple">More</span> Projects
+                            </h2>
+                            <p class="text-gray-600">Check out other projects I've worked on</p>
+                        </div>
+                        <div class="flex justify-center gap-4">
+                            <a href="portfolio.html" class="bg-purple hover:bg-blue-600 text-white px-8 py-4 rounded-full font-semibold transition-all shadow-lg inline-flex items-center gap-2">
+                                View All Projects
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            `;
+
+            document.getElementById('project-content').innerHTML = content;
+            document.title = `${project.titre} - Aymane El Achiri`;
+        }
+
+        // Load project when page loads
+        window.addEventListener('DOMContentLoaded', loadProjectDetails);
+    </script>
+</body>
+</html>

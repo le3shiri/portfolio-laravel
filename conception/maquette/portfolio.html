@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Aymane El Achiri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B6B',
+                        orange: '#FFB800',
+                        purple: '#6C63FF',
+                        lightBlue: '#F0F4FF',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-lightBlue">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="assets/logo.png" alt="Aymane El Achiri" class="h-12 w-auto">
+                </a>
+
+                <!-- Desktop Menu -->
+                <ul class="hidden lg:flex items-center space-x-8">
+                    <li><a href="index.html" class="text-gray-700 hover:text-orange transition-colors">Home</a></li>
+                    <li><a href="about.html" class="text-gray-700 hover:text-orange transition-colors">About</a></li>
+                    <li><a href="portfolio.html" class="text-orange font-semibold">Portfolio</a></li>
+                </ul>
+
+                <!-- Contact Button -->
+                <a href="#contact" class="hidden lg:block bg-orange hover:bg-yellow-500 text-white px-8 py-3 rounded-full font-semibold transition-all shadow-lg">
+                    Contact
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-2xl text-gray-800">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden lg:hidden pb-4">
+                <ul class="flex flex-col space-y-3">
+                    <li><a href="index.html" class="text-gray-700">Home</a></li>
+                    <li><a href="about.html" class="text-gray-700">About</a></li>
+                    <li><a href="portfolio.html" class="text-orange font-semibold">Portfolio</a></li>
+                    <li><a href="#contact" class="bg-orange text-white px-6 py-2 rounded-full inline-block">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-12 bg-gradient-to-br from-purple/10 to-orange/10">
+        <div class="container mx-auto px-4 lg:px-8 text-center">
+            <h1 class="text-5xl lg:text-6xl font-bold mb-4">
+                <span class="bg-gradient-to-r from-purple to-blue-600 bg-clip-text text-transparent">My Portfolio</span>
+            </h1>
+            <p class="text-gray-600 text-lg">Explore my recent projects and creative works</p>
+        </div>
+    </section>
+
+    <!-- Filter Tabs -->
+    <section class="py-8 sticky top-20 bg-lightBlue/95 backdrop-blur-sm z-40">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="filterProjects('all')" class="filter-btn active px-6 py-3 rounded-full font-semibold transition-all">
+                    All Projects
+                </button>
+                <button onclick="filterProjects('web')" class="filter-btn px-6 py-3 rounded-full font-semibold transition-all">
+                    Web Development
+                </button>
+                <button onclick="filterProjects('wordpress')" class="filter-btn px-6 py-3 rounded-full font-semibold transition-all">
+                    WordPress
+                </button>
+                <button onclick="filterProjects('uiux')" class="filter-btn px-6 py-3 rounded-full font-semibold transition-all">
+                    UI/UX Design
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="py-20">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Project 1 - Mobility Manager -->
+                <div class="project-card" data-category="web">
+                    <div class="group relative overflow-hidden rounded-3xl shadow-xl bg-white">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/MobilityManager.png" alt="Mobility Manager" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple via-purple/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <span class="bg-orange text-white px-3 py-1 rounded-full text-sm font-semibold">Web Development</span>
+                                <h3 class="text-white text-2xl font-bold mt-3 mb-2">Mobility Manager</h3>
+                                <p class="text-white/90 text-sm mb-4">Staff mobility management platform with real-time tracking</p>
+                                <a href="project-detail.html?id=1" class="inline-flex items-center gap-2 text-white hover:text-orange transition-colors font-semibold">
+                                    View Details <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-orange text-sm font-semibold">Web Development</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Mobility Manager</h3>
+                            <p class="text-gray-600 text-sm mb-4">Staff mobility platform for Rguigue Transport</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">PHP</span>
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">MySQL</span>
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Mudart Shop -->
+                <div class="project-card" data-category="wordpress">
+                    <div class="group relative overflow-hidden rounded-3xl shadow-xl bg-white">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/MudartShop.png" alt="Mudart Shop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-orange via-orange/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <span class="bg-purple text-white px-3 py-1 rounded-full text-sm font-semibold">WordPress</span>
+                                <h3 class="text-white text-2xl font-bold mt-3 mb-2">Mudart Shop</h3>
+                                <p class="text-white/90 text-sm mb-4">Full-featured e-commerce website with payment integration</p>
+                                <a href="project-detail.html?id=2" class="inline-flex items-center gap-2 text-white hover:text-purple transition-colors font-semibold">
+                                    View Details <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-orange text-sm font-semibold">WordPress</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Mudart Shop</h3>
+                            <p class="text-gray-600 text-sm mb-4">E-commerce platform with WooCommerce</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">WordPress</span>
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">WooCommerce</span>
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">PHP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Gaming Landing -->
+                <div class="project-card" data-category="uiux">
+                    <div class="group relative overflow-hidden rounded-3xl shadow-xl bg-white">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/gamingLanding.png" alt="Gaming Landing" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple via-purple/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <span class="bg-orange text-white px-3 py-1 rounded-full text-sm font-semibold">UI/UX Design</span>
+                                <h3 class="text-white text-2xl font-bold mt-3 mb-2">Gaming Tournament</h3>
+                                <p class="text-white/90 text-sm mb-4">Modern landing page design for gaming tournaments</p>
+                                <a href="project-detail.html?id=3" class="inline-flex items-center gap-2 text-white hover:text-orange transition-colors font-semibold">
+                                    View Details <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-orange text-sm font-semibold">UI/UX Design</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Gaming Tournament</h3>
+                            <p class="text-gray-600 text-sm mb-4">Landing page for Solicode gaming field</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">Figma</span>
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">UI Design</span>
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">Prototyping</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 - INOVAFY -->
+                <div class="project-card" data-category="uiux">
+                    <div class="group relative overflow-hidden rounded-3xl shadow-xl bg-white">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/INOVAFYLanding.png" alt="INOVAFY" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-orange via-orange/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <span class="bg-purple text-white px-3 py-1 rounded-full text-sm font-semibold">UI/UX Design</span>
+                                <h3 class="text-white text-2xl font-bold mt-3 mb-2">INOVAFY Landing</h3>
+                                <p class="text-white/90 text-sm mb-4">Brand landing page with modern aesthetics</p>
+                                <a href="project-detail.html?id=4" class="inline-flex items-center gap-2 text-white hover:text-purple transition-colors font-semibold">
+                                    View Details <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-orange text-sm font-semibold">UI/UX Design</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">INOVAFY Landing</h3>
+                            <p class="text-gray-600 text-sm mb-4">Landing page design for startup company</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">Figma</span>
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">Branding</span>
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">Web Design</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 - Personal Portfolio -->
+                <div class="project-card" data-category="web">
+                    <div class="group relative overflow-hidden rounded-3xl shadow-xl bg-white">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/PersonalPortfolio.png" alt="Personal Portfolio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple via-purple/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <span class="bg-orange text-white px-3 py-1 rounded-full text-sm font-semibold">Web Development</span>
+                                <h3 class="text-white text-2xl font-bold mt-3 mb-2">Personal Portfolio</h3>
+                                <p class="text-white/90 text-sm mb-4">Responsive portfolio website with modern design</p>
+                                <a href="project-detail.html?id=5" class="inline-flex items-center gap-2 text-white hover:text-orange transition-colors font-semibold">
+                                    View Details <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-orange text-sm font-semibold">Web Development</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Personal Portfolio</h3>
+                            <p class="text-gray-600 text-sm mb-4">Previous portfolio iteration</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">HTML</span>
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">CSS</span>
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 - NMedical Plus -->
+                <div class="project-card" data-category="wordpress">
+                    <div class="group relative overflow-hidden rounded-3xl shadow-xl bg-white">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/Nmedicalp.png" alt="NMedical Plus" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-orange via-orange/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <span class="bg-purple text-white px-3 py-1 rounded-full text-sm font-semibold">WordPress</span>
+                                <h3 class="text-white text-2xl font-bold mt-3 mb-2">NMedical Plus</h3>
+                                <p class="text-white/90 text-sm mb-4">E-commerce for medical equipment and supplies</p>
+                                <a href="project-detail.html?id=6" class="inline-flex items-center gap-2 text-white hover:text-purple transition-colors font-semibold">
+                                    View Details <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-orange text-sm font-semibold">WordPress</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">NMedical Plus</h3>
+                            <p class="text-gray-600 text-sm mb-4">Medical e-commerce platform</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">WordPress</span>
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">WooCommerce</span>
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">Custom Theme</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 - Ladrissi.com -->
+                <div class="project-card" data-category="wordpress">
+                    <div class="group relative overflow-hidden rounded-3xl shadow-xl bg-white">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/LadrissiCom.png" alt="Ladrissi.com" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple via-purple/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <span class="bg-orange text-white px-3 py-1 rounded-full text-sm font-semibold">WordPress</span>
+                                <h3 class="text-white text-2xl font-bold mt-3 mb-2">Ladrissi.com</h3>
+                                <p class="text-white/90 text-sm mb-4">Professional business website with modern design</p>
+                                <a href="project-detail.html?id=7" class="inline-flex items-center gap-2 text-white hover:text-orange transition-colors font-semibold">
+                                    View Details <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-orange text-sm font-semibold">WordPress</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Ladrissi.com</h3>
+                            <p class="text-gray-600 text-sm mb-4">Business website with custom features</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">WordPress</span>
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">PHP</span>
+                                <span class="text-xs bg-orange/10 text-orange px-3 py-1 rounded-full">Custom Theme</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 - Ladrissi360.com -->
+                <div class="project-card" data-category="web">
+                    <div class="group relative overflow-hidden rounded-3xl shadow-xl bg-white">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/Ladrissi360.png" alt="Ladrissi360" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-orange via-orange/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <span class="bg-purple text-white px-3 py-1 rounded-full text-sm font-semibold">Web Development</span>
+                                <h3 class="text-white text-2xl font-bold mt-3 mb-2">Ladrissi360</h3>
+                                <p class="text-white/90 text-sm mb-4">360-degree virtual tour platform</p>
+                                <a href="project-detail.html?id=8" class="inline-flex items-center gap-2 text-white hover:text-purple transition-colors font-semibold">
+                                    View Details <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-orange text-sm font-semibold">Web Development</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Ladrissi360</h3>
+                            <p class="text-gray-600 text-sm mb-4">Interactive virtual tour website</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">JavaScript</span>
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">Three.js</span>
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">HTML5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 - Projecteurlogo.com -->
+                <div class="project-card" data-category="web">
+                    <div class="group relative overflow-hidden rounded-3xl shadow-xl bg-white">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="assets/ProjectorLogo.png" alt="Projecteurlogo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple via-purple/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-0 left-0 right-0 p-6">
+                                <span class="bg-orange text-white px-3 py-1 rounded-full text-sm font-semibold">Web Development</span>
+                                <h3 class="text-white text-2xl font-bold mt-3 mb-2">Projecteurlogo</h3>
+                                <p class="text-white/90 text-sm mb-4">Modern Next.js logo design platform</p>
+                                <a href="project-detail.html?id=9" class="inline-flex items-center gap-2 text-white hover:text-orange transition-colors font-semibold">
+                                    View Details <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-orange text-sm font-semibold">Web Development</span>
+                            <h3 class="text-xl font-bold text-gray-800 mt-2 mb-2">Projecteurlogo</h3>
+                            <p class="text-gray-600 text-sm mb-4">Next.js logo design platform</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">Next.js</span>
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">React</span>
+                                <span class="text-xs bg-purple/10 text-purple px-3 py-1 rounded-full">TypeScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4 text-gray-800">
+                    <span class="text-purple">Get In</span> Touch
+                </h2>
+                <p class="text-gray-600 text-lg mb-12">
+                    Ready to start your project? Let's talk about how I can help bring your ideas to life.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                    <!-- Email -->
+                    <a href="mailto:satayman41@gmail.com" class="group bg-gradient-to-br from-purple/10 to-blue-50 rounded-2xl p-8 hover:shadow-xl transition-all">
+                        <div class="w-16 h-16 bg-purple rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="bi bi-envelope-fill text-2xl text-white"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-2 text-lg">Email Me</h3>
+                        <p class="text-purple font-semibold break-all">satayman41@gmail.com</p>
+                    </a>
+
+                    <!-- Phone -->
+                    <a href="tel:+212707407425" class="group bg-gradient-to-br from-orange/10 to-yellow-50 rounded-2xl p-8 hover:shadow-xl transition-all">
+                        <div class="w-16 h-16 bg-orange rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                            <i class="bi bi-telephone-fill text-2xl text-white"></i>
+                        </div>
+                        <h3 class="font-bold text-gray-800 mb-2 text-lg">Call Me</h3>
+                        <p class="text-orange font-semibold">+212 707 40 74 25</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-purple to-blue-600">
+        <div class="container mx-auto px-4 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6">Have a Project in Mind?</h2>
+            <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+                Let's bring your ideas to life with creative solutions and cutting-edge technology.
+            </p>
+            <a href="contact.html" class="bg-orange hover:bg-yellow-500 text-white px-10 py-4 rounded-full font-semibold transition-all shadow-lg inline-flex items-center gap-2">
+                Start Your Project
+                <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <a href="index.html" class="inline-block mb-4">
+                        <img src="assets/logo.png" alt="Aymane El Achiri" class="h-10 w-auto brightness-0 invert">
+                    </a>
+                    <p class="text-gray-400">Creative Web Developer & UI/UX Designer based in Morocco.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-orange transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-orange transition-colors">About</a></li>
+                        <li><a href="services.html" class="hover:text-orange transition-colors">Services</a></li>
+                        <li><a href="portfolio.html" class="hover:text-orange transition-colors">Portfolio</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Tangier, Morocco</li>
+                        <li>satayman41@gmail.com</li>
+                        <li>+212 707 40 74 25</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4">Follow Me</h4>
+                    <div class="flex gap-4">
+                        <a href="https://www.linkedin.com/in/mohamed-aymane-el-achiri-65383b300/" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple transition-all">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="https://www.instagram.com/elachiriiii/" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange transition-all">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-purple transition-all">
+                            <i class="bi bi-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>Copyright © 2025 Aymane El Achiri | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .filter-btn {
+            background: white;
+            color: #6B7280;
+            border: 2px solid transparent;
+        }
+        
+        .filter-btn:hover {
+            border-color: #6C63FF;
+            color: #6C63FF;
+        }
+        
+        .filter-btn.active {
+            background: #6C63FF;
+            color: white;
+            border-color: #6C63FF;
+        }
+
+        .project-card {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    const cardCategory = card.getAttribute('data-category');
+                    card.style.display = cardCategory === category ? 'block' : 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
